@@ -1,16 +1,20 @@
 require 'zip'
 require 'nokogiri'
+require 'open-uri'
 
 require "sablon/version"
 require "sablon/configuration/configuration"
 
 require "sablon/numbering"
+require "sablon/images"
 require "sablon/context"
 require "sablon/environment"
 require "sablon/template"
 require "sablon/processor/document"
 require "sablon/processor/section_properties"
 require "sablon/processor/numbering"
+require "sablon/processor/content_type"
+require "sablon/processor/relationships"
 require "sablon/parser/mail_merge"
 require "sablon/operations"
 require "sablon/html/converter"
