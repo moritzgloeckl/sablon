@@ -1,5 +1,6 @@
 require 'zip'
 require 'nokogiri'
+require 'open-uri'
 
 require "sablon/version"
 require "sablon/configuration/configuration"
