@@ -50,8 +50,13 @@ module Sablon
       end
 
       def initialize(path)
-        # Links from Amazon S3 might have ?1498548740 part
-        super "#{Integer(rand * 1e9)}-#{File.basename(path).split('?').first}", open(path).read
+        if path.start_with?('data:image/')
+          # Image is a Base64 encoded string
+          super "#{Integer(rand * 1e9)}-image.#{path[11 .. path.index(";")-1]}", Base64.decode64(path[(path.index(',') + 1) .. -1])
+        else
+          # Links from Amazon S3 might have ?1498548740 part
+          super "#{Integer(rand * 1e9)}-#{File.basename(path).split('?').first}", open(path).read
+        end
       end
 
       def append_to(paragraph, display_node, env) end
